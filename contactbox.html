@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contactbox</title>
+    <link rel="stylesheet" href="contactbox.css" />
+  </head>
+  <body>
+</script>
+    <div class="container">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>BOOKING</h3>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Email id" required />
+        <input type="text" id="Phone" placeholder="Phone No." required />
+        <input type="number" id="Guests" placeholder="Guests Number" required />
+        <input type="datetime-local" id="dateTime" required />
+
+        
+        <textarea
+          id="message"
+          rows="6"
+          placeholder="How can we help you?"
+          required
+        ></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "xxxx@gmail.com",
+          Password: "fskljfsdl78",
+          To: "yyyyy@gmail.com",
+          From: document.getElementById("email").value,
+          Subject: "New Contact Form Enquiry",
+          Body:
+            "Name: " +
+            document.getElementById("name").value +
+            "<br> Email: " +
+            document.getElementById("Email").value +
+            "<br> Phone no: " +
+            document.getElementById("Phone").value +
+            "<br> Guest: " +
+            document.getElementById("Guests").value +
+            "<br> Date: " +
+            decument.getElementById("date").value +
+            "<br> message: " +
+            decument.getElementById("message").value,
+        }).then((message) => alert("Message Sent Succesfully"));
+      }
+    </script>
+  </body>
+</html>
